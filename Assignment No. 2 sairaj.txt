@@ -1,0 +1,281 @@
+1. Write a program to check whether a number is prime or not.
+-->
+#include <iostream>
+using namespace std;
+
+int prime(int num) {
+    if (num <= 1) {
+        cout << "No is not prime" << endl;
+        return 0;
+    }
+    for (int i = 2; i <=num/2; i++) {
+        if (num % i == 0) {
+            cout << "No is not prime" << endl;
+            return 0;
+        }
+    }
+    cout << "No is prime" << endl;
+}
+
+int main() {
+    int num;
+    cout << "Enter the no.\n";
+    cin >> num;
+    prime(num);
+
+    return 0;
+}
+Output :
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+Enter the no.
+5
+No is prime
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+Enter the no.
+6
+No is not prime
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+Enter the no.
+8
+No is not prime
+
+____________________________________________________________________________________________________________________________________
+
+2. Write a program to generate first N prime numbers. Accept N from user.  
+
+#include <iostream>
+using namespace std;
+int isprime(int num){
+   if (num <= 1)
+      return 0;
+   for (int i = 2; i <= num/2; i++){
+      if (num % i == 0)
+         { return 0; }
+   }
+   return 1; //if both failed then num is prime
+}
+int noofprime(int n){
+   int count=0;
+   int num = 2;
+
+   while(count < n){
+      if (isprime(num)){
+        cout<<num<<endl;
+         count ++;
+        }
+       num++;
+   }       
+}
+int main(){
+   int n;
+   cout <<endl<<"Enter the Number : ";
+   cin>>n;
+   noofprime(n);
+   return 0;
+}
+OUTPUT :
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+
+Enter the Number : 10
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language>
+
+______________________________________________________________________________________________________________________________________
+3. Write a program to generate following pyramid
+A
+AB
+ABC
+..... A..............Z
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+   int i, j, n = 26; 
+	for (i = 1; i <= n; i++) { 
+		for (j = 1; j <= i; j++) { 
+			cout << (char)('A' + j - 1) << " "; 
+		} 
+		cout << endl; 
+	} 
+	return 0; 
+
+} 
+
+OUTPUT : 
+
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+A 
+A B
+A B C
+A B C D
+A B C D E
+A B C D E F
+A B C D E F G
+A B C D E F G H
+A B C D E F G H I
+A B C D E F G H I J
+A B C D E F G H I J K
+A B C D E F G H I J K L
+A B C D E F G H I J K L M
+A B C D E F G H I J K L M N
+A B C D E F G H I J K L M N O
+A B C D E F G H I J K L M N O P
+A B C D E F G H I J K L M N O P Q
+A B C D E F G H I J K L M N O P Q R
+A B C D E F G H I J K L M N O P Q R S 
+A B C D E F G H I J K L M N O P Q R S T
+A B C D E F G H I J K L M N O P Q R S T U
+A B C D E F G H I J K L M N O P Q R S T U V
+A B C D E F G H I J K L M N O P Q R S T U V W
+A B C D E F G H I J K L M N O P Q R S T U V W X
+A B C D E F G H I J K L M N O P Q R S T U V W X Y
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> 
+
+
+________________________________________________________________________________________________________________________________
+
+4.4. Write a menu driven program to perform mathematical operations on two numbers. 
+1. Add
+2. Sub
+3. Mul
+4. Div
+5. Exit
+accept the menu option and numbers form user. 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice;
+    double num1, num2;
+
+    do {
+        // Display the menu
+        cout << "Menu:\n";
+        cout << "1. Add\n";
+        cout << "2. Subtract\n";
+        cout << "3. Multiply\n";
+        cout << "4. Divide\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        // Perform the chosen operation
+        switch (choice) {
+            case 1:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << num1 + num2 << endl;
+                break;
+            case 2:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << num1 - num2 << endl;
+                break;
+            case 3:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << num1 * num2 << endl;
+                break;
+            case 4:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                if (num2 != 0) {
+                    cout << "Result: " << num1 / num2 << endl;
+                } else {
+                    cout << "Error: Division by zero is not allowed." << endl;
+                }
+                break;
+            case 5:
+                cout << "Exiting the program." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+
+        cout << endl; 
+    } while (choice != 5);
+
+    return 0;
+}
+
+OUTPUT:
+
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 1
+Enter two numbers: 5
+4
+Result: 9
+
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 0
+Invalid choice. Please try again.
+
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice: 5
+Exiting the program.
+
+___________________________________________________________________________________________________________________________________
+
+5.5. Generate following pyramid , accept the level from the user as input
+1
+1 2
+1 2 3
+..... 1................N
+ where N is the level accepted as input
+
+#include <iostream>
+using namespace std;
+
+int main(){
+int i,j,n;
+cout<<"Enter the No.";
+cin>>n;
+for(i=1; i <= n; i++){
+    for(j=1;j<=i;j++){
+      cout<<j<<" ";
+    }
+
+    cout<<endl;
+}
+
+}
+ 
+OUTPUT:
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> cd "c:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language\" ; if ($?) { g++ Ready.cpp -o Ready } ; if ($?) { .\Ready }
+Enter the No.5
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+PS C:\Users\HP\OneDrive\Desktop\C-DAC\C++ Language> 
+
